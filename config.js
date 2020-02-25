@@ -1,40 +1,43 @@
+'use strict';
+
 module.exports = {
   mongodb: {
-    uri: 'mongodb://localhost/any-shop',
+    uri: process.env.MONGO_URI,
   },
   crypto: {
-    iterations: (process.env.NODE_ENV === 'test' ? 1 : 12000),
+    iterations: 1,
     length: 128,
     digest: 'sha512',
   },
   providers: {
     github: {
-      app_id: 'github_app_id',
-      app_secret:'github_app_secret',
-      callback_uri: 'http://localhost:3000/oauth/github',
+      'app_id': process.env.GITHUB_APP_ID,
+      'app_secret': process.env.GITHUB_APP_SECRET,
+      'callback_uri': 'http://localhost:3000/oauth/github',
       options: {
         scope: ['user:email'],
       },
     },
     facebook: {
-      app_id: 'facebook_app_id',
-      app_secret: 'facebook_app_secret',
-      callback_uri: 'http://localhost:3000/oauth/facebook',
+      'app_id': process.env.FACEBOOK_APP_ID,
+      'app_secret': process.env.FACEBOOK_APP_SECRET,
+      'callback_uri': 'http://localhost:3000/oauth/facebook',
       options: {
         scope: ['email'],
       },
     },
     vkontakte: {
-      app_id: 'vkontakte_app_id',
-      app_secret: 'vkontakte_app_secret',
-      callback_uri: 'http://localhost:3000/oauth/vkontakte',
+      'app_id': 'vkontakte_app_id',
+      'app_secret': 'vkontakte_app_secret',
+      'callback_uri': 'http://localhost:3000/oauth/vkontakte',
       options: {
         scope: ['email'],
       },
     },
   },
   mailer: {
-    user: '',
-    password: '',
+    user: process.env.MAILER_USER,
+    password: process.env.MAILER_PASSWORD,
   },
 };
+
