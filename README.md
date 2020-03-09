@@ -2,7 +2,7 @@
 
 • RESTful API on Koa.js
 
-• Used the PostgresSQL database in conjunction with Mongoose ODM
+• Used the MongoDB database in conjunction with Mongoose ODM
 
 • Implemented authorization through social networks using the Passport.js middleware
 
