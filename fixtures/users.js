@@ -6,4 +6,4 @@ module.exports = [{
   email: 'user2@mail.com',
   displayName: 'user2',
   password: '123123',
-}];
+}]

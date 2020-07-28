@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const crypto = require('crypto');
-const connection = require('../libs/connection');
-const config = require('../config');
+const mongoose = require('mongoose')
+const crypto = require('crypto')
+const connection = require('../libs/connection')
+const config = require('../config')
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     validate: [
       {
         validator(value) {
-          return /^[-.\w]+@([\w-]+\.)+[\w-]{2,12}$/.test(value);
+          return /^[-.\w]+@([\w-]+\.)+[\w-]{2,12}$/.test(value)
         },
         message: 'Некорректный email.',
       },
@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
   },
 }, {
   timestamps: true,
-});
+})
 
 function generatePassword(salt, password) {
   return new Promise((resolve, reject) => {
@@ -44,32 +44,33 @@ function generatePassword(salt, password) {
         config.crypto.length,
         config.crypto.digest,
         (err, key) => {
-          if (err) return reject(err);
-          resolve(key.toString('hex'));
-        }
-    );
-  });
+          if (err) return reject(err)
+          resolve(key.toString('hex'))
+        },
+    )
+  })
 }
 
 function generateSalt() {
   return new Promise((resolve, reject) => {
     crypto.randomBytes(config.crypto.length, (err, buffer) => {
-      if (err) return reject(err);
-      resolve(buffer.toString('hex'));
-    });
-  });
+      if (err) return reject(err)
+      resolve(buffer.toString('hex'))
+    })
+  })
 }
 
 userSchema.methods.setPassword = async function setPassword(password) {
-  this.salt = await generateSalt();
-  this.passwordHash = await generatePassword(this.salt, password);
-};
+  this.salt = await generateSalt()
+  this.passwordHash = await generatePassword(this.salt, password)
+}
 
 userSchema.methods.checkPassword = async function(password) {
-  if (!password) return false;
+  if (!password) return false
 
-  const hash = await generatePassword(this.salt, password);
-  return hash === this.passwordHash;
-};
+  const hash = await generatePassword(this.salt, password)
 
-module.exports = connection.model('User', userSchema);
+  return hash === this.passwordHash
+}
+
+module.exports = connection.model('User', userSchema)

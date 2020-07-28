@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const connection = require('../libs/connection');
+const mongoose = require('mongoose')
+const connection = require('../libs/connection')
 
 const orderSchema = new mongoose.Schema({
   user: {
@@ -18,7 +18,7 @@ const orderSchema = new mongoose.Schema({
     validate: [
       {
         validator(value) {
-          return /\+?\d{6,14}/.test(value);
+          return /\+?\d{6,14}/.test(value)
         },
         message: 'Неверный формат номера телефона.',
       },
@@ -28,6 +28,6 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
+})
 
-module.exports = connection.model('Order', orderSchema);
+module.exports = connection.model('Order', orderSchema)

@@ -1,4 +1,4 @@
-const mapProduct = require('./product');
+const mapProduct = require('./product')
 
 module.exports = function mapOrder(order) {
   return {
@@ -7,5 +7,5 @@ module.exports = function mapOrder(order) {
     product: mapProduct(order.product),
     phone: order.phone,
     address: order.address,
-  };
-};
+  }
+}

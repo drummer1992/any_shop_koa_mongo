@@ -4,5 +4,5 @@ module.exports = function(msg) {
     text: msg.text,
     id: msg['_id'],
     user: msg.user,
-  };
-};
+  }
+}

@@ -7,5 +7,5 @@ module.exports = function mapProduct(product) {
     subcategory: product.subcategory,
     price: product.price,
     description: product.description,
-  };
-};
+  }
+}

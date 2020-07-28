@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const connection = require('../libs/connection');
+const mongoose = require('mongoose')
+const connection = require('../libs/connection')
 
 const schema = new mongoose.Schema({
   token: {
@@ -16,8 +16,8 @@ const schema = new mongoose.Schema({
     required: true,
     ref: 'User',
   },
-});
+})
 
-schema.path('lastVisit').index({expires: '7d'});
+schema.path('lastVisit').index({ expires: '7d' })
 
-module.exports = connection.model('Session', schema);
+module.exports = connection.model('Session', schema)

@@ -1,11 +1,11 @@
-const juice = require('juice');
-const config = require('../config');
-const path = require('path');
-const pug = require('pug');
+const juice = require('juice')
+const config = require('../config')
+const path = require('path')
+const pug = require('pug')
 
-const nodemailer = require('nodemailer');
-const htmlToText = require('nodemailer-html-to-text').htmlToText;
-const SMTPTransport = require('nodemailer-smtp-transport');
+const nodemailer = require('nodemailer')
+const htmlToText = require('nodemailer-html-to-text').htmlToText
+const SMTPTransport = require('nodemailer-smtp-transport')
 
 const transportEngine = new SMTPTransport({
     host: 'smtp.mailgun.org',
@@ -15,11 +15,11 @@ const transportEngine = new SMTPTransport({
       user: config.mailer.user,
       pass: config.mailer.password,
     },
-  });
+  })
 
-const transport = nodemailer.createTransport(transportEngine);
+const transport = nodemailer.createTransport(transportEngine)
 
-transport.use('compile', htmlToText());
+transport.use('compile', htmlToText())
 
 /*
 * sendMail - функция, отправляющая письмо на указанный адрес
@@ -40,7 +40,7 @@ module.exports = async function sendMail(options) {
   const html = pug.renderFile(
       path.join(__dirname, '../templates', options.template) + '.pug',
       options.locals || {},
-  );
+  )
 
   const message = {
     html: juice(html),
@@ -48,9 +48,9 @@ module.exports = async function sendMail(options) {
       address: options.to,
     },
     subject: options.subject,
-  };
+  }
 
-  return await transport.sendMail(message);
-};
+  return await transport.sendMail(message)
+}
 
-module.exports.transportEngine = transportEngine;
+module.exports.transportEngine = transportEngine

@@ -1,6 +1,6 @@
-const VkontakteStrategy = require('passport-vkontakte').Strategy;
-const config = require('../../config');
-const authenticate = require('./authenticate');
+const VkontakteStrategy = require('passport-vkontakte').Strategy
+const config = require('../../config')
+const authenticate = require('./authenticate')
 
 module.exports = new VkontakteStrategy({
   clientID: config.providers.vkontakte.app_id,
@@ -9,6 +9,6 @@ module.exports = new VkontakteStrategy({
   scope: ['user:email'],
   session: false,
 }, function(accessToken, refreshToken, params, profile, done) {
-  authenticate('vkontakte', params.email, profile.displayName, done);
-}
-);
+  authenticate('vkontakte', params.email, profile.displayName, done)
+},
+)

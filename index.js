@@ -1,8 +1,8 @@
-const app = require('./app');
-const socket = require('./socket');
+const app = require('./app')
+const socket = require('./socket')
 
-const server = app.listen(3000, () => {
-  console.log('App is running on http://localhost:3000');
-});
+const server = app.listen(process.env.PORT, () => {
+  console.log(`App is running on ${process.env.PORT}`)
+})
 
-socket(server);
+socket(server)

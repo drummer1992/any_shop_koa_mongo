@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const connection = require('../libs/connection');
+const mongoose = require('mongoose')
+const connection = require('../libs/connection')
 
 const messageSchema = new mongoose.Schema({
   user: {
@@ -22,6 +22,6 @@ const messageSchema = new mongoose.Schema({
     required: true,
   },
 
-});
+})
 
-module.exports = connection.model('Message', messageSchema);
+module.exports = connection.model('Message', messageSchema)
