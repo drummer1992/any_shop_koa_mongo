@@ -4,7 +4,7 @@
   "plugins": [
     "filenames"
   ],
-  "ignorePatterns": ["**/*.hbs.js"],
+  "ignorePatterns": [],
   "env": {
     "es6": true,
     "node": true
@@ -88,7 +88,7 @@
     ],
     "no-mixed-operators": ["error", {
       "groups": [
-        ["&&", "?:"],
+        ["&&", "?:"]
       ]
     }],
     "operator-linebreak": ["error", "before"],
@@ -102,7 +102,6 @@
         "checkLoops": false
       }
     ],
-    // require function declarations instead of expressions
     "func-style": [
       "warn",
       "declaration",
@@ -110,10 +109,6 @@
         "allowArrowFunctions": true
       }
     ],
-    // disallow declaration of variables already declared in the outer scope
-    // "no-shadow": "warn",
-
-    // require let or const instead of var
     "require-await": "warn",
     "no-var": "warn",
     "no-undef": "warn",
@@ -123,23 +118,19 @@
       120
     ],
     "no-unexpected-multiline": "error",
-    // require or disallow use of semicolons instead of ASI
     "semi": [
       "warn",
       "never"
     ],
-    // require the use of === and !== except null comparison
     "eqeqeq": [
       "warn",
       "smart"
     ],
-    // specify whether double or single quotes should be used
     "quotes": [
       "warn",
       "single",
       "avoid-escape"
     ],
-    // require space before/after arrow function"s arrow
     "arrow-spacing": [
       "warn",
       {
@@ -151,23 +142,19 @@
       "warn",
       "as-needed"
     ],
-    // suggest using of const declaration for variables that are never modified after declared
     "prefer-const": [
       "warn",
       {
         "destructuring": "all"
       }
     ],
-    // restrict what can be thrown as an exception
     "no-throw-literal": "warn",
-    // disallow Unused Expressions
     "no-unused-expressions": [
       "warn",
       {
         "allowShortCircuit": true
       }
     ],
-    // require padding inside curly braces
     "object-curly-spacing": [
       "warn",
       "always"

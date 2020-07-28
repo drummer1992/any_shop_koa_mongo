@@ -1,5 +1,5 @@
 const Message = require('../models/Message')
-const messageMaper = require('../mappers/message')
+const messageMapper = require('../mappers/message')
 
 module.exports.messageList = async function messages(ctx) {
   if (!ctx.user) {
@@ -8,5 +8,5 @@ module.exports.messageList = async function messages(ctx) {
 
   const messages = await Message.find({ user: ctx.user.displayName }).limit(20)
 
-  ctx.body = { messages: messages.map(messageMaper) }
+  ctx.body = { messages: messages.map(messageMapper) }
 }
